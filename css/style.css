@@ -1,5 +1,6 @@
-button
+input
 {
     width: 35px;
-    background-color: #122b40;
+    background-color: darkgray;
+    margin-bottom: 5px;
 }
