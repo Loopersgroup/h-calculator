@@ -12,8 +12,9 @@
                 var p='0';
                 var flag=0;
                 $('.number').click(function(){
-                var v=$(this).val();
-                $('#answer').val($("#answer").val() + v);
+                     $("#answer").val('');
+                    var v=$(this).val();
+                    $('#answer').val($("#answer").val() + v);
                 });
                 $("#c").click(function(){
                     $("operation").val('');
@@ -36,55 +37,65 @@
                     flag=1;
                 });
                 $('#equal').click(function(){
-                    if(op=='+') {
-                        p = parseInt($("#answer").val()) + parseInt(p);
-                        op = '';
+                    var j=($("#answer").val());
+                    if(j=='')
+                    {
                         $("#answer").attr('');
                         $("#answer").val(p);
                         $("#answer").attr('');
                         p = 0;
                         op = '';
                     }
-                    else if(op=='*') {
-                        p = parseInt($("#answer").val()) * parseInt(p);
+                    else
+                    {
+                        if (op == '+') {
+                            p = parseInt(j) + parseInt(p);
+                            op = '';
+                            $("#answer").attr('');
+                            $("#answer").val(p);
+                            $("#answer").attr('');
+                            p = 0;
+                            op = '';
+                        }
+                        else if (op == '*') {
+                            p = parseInt(j) * parseInt(p);
 
 //                        $("#answer").attr('');
-                        $("#answer").val(p);
-                        $("#answer").attr('');
-                        p=0;
-                        op = '';
-                    }
-                    else if(op=='/')
-                    {
-                        var x=parseInt($("#answer").val());
-                        if(x!=0)
-                            p =  parseInt(p) / x;
-                        else
-                            alert("Divide By Ziro!");
+                            $("#answer").val(p);
+                            $("#answer").attr('');
+                            p = 0;
+                            op = '';
+                        }
+                        else if (op == '/') {
+                            var x = parseInt(j);
+                            if (x != 0)
+                                p = parseInt(p) / x;
+                            else
+                                alert("Divide By Ziro!");
 
 //                        $("#answer").attr('');
-                        $("#answer").val(p);
-                        $("#answer").attr('');
-                        p=0;
-                        op = '';
-                    }
-                    else if(op=='-')
-                    {
-                        p =parseInt(p) - parseInt($("#answer").val());
-                        op = '';
-                        $("#answer").attr('');
-                        $("#answer").val(p);
-                        $("#answer").attr('');
-                        p = 0;
-                        op = '';
-                    }
-                    else {
-                        p = parseInt($("#answer").val());
-                        $("#answer").attr('');
-                        $("#answer").val(p);
-                        $("#answer").attr('');
-                        p = 0;
-                        op = '';
+                            $("#answer").val(p);
+                            $("#answer").attr('');
+                            p = 0;
+                            op = '';
+                        }
+                        else if (op == '-') {
+                            p = parseInt(p) - parseInt(j);
+                            op = '';
+                            $("#answer").attr('');
+                            $("#answer").val(p);
+                            $("#answer").attr('');
+                            p = 0;
+                            op = '';
+                        }
+                        else {
+                            p = j;
+                            $("#answer").attr('');
+                            $("#answer").val(p);
+                            $("#answer").attr('');
+                            p = 0;
+                            op = '';
+                        }
                     }
                     flag=0;
                 });
