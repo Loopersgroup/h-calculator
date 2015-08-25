@@ -70,7 +70,7 @@
                     }
                     else if(op=='-')
                     {
-                        p = parseInt($("#answer").val()) - parseInt(p);
+                        p =parseInt(p) - parseInt($("#answer").val());
                         op = '';
                         $("#answer").attr('');
                         $("#answer").val(p);
@@ -136,8 +136,10 @@
                         p=parseInt(p) * v;
                     else if(op=='/')
                         p=parseInt(p) / v;
-                    else
+                    else if(flag!=0)
                         p=parseInt(p) - v;
+                    else
+                        p=v;
                     op='-';
                     alert(p);
                     $("#operation").val('-');
